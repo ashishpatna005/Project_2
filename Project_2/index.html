@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Service</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Card Service -Responsive Form</h1>
+
+    <div class="service-description">
+      <p>
+        Welcome to our Card Service! We offer high-quality cards for various
+        occasions. Place your order below.
+      </p>
+    </div>
+
+    <h2>Prices</h2>
+    <ul class="price-list">
+      <li class="price-item" id="silverPrice">Silver Card - $5</li>
+      <li class="price-item" id="goldPrice">Gold Card - $10</li>
+      <li class="price-item" id="diamondPrice">Diamond Card - $15</li>
+      <li class="price-item" id="customLeadsPrice">Custom Leads</li>
+    </ul>
+
+    <form enctype="multipart/form-data" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" required />
+
+      <label for="occasion">Occasion:</label>
+      <input type="text" id="occasion" name="occasion" required />
+
+      <label for="cardType">Select Card Type:</label>
+      <select
+        id="cardType"
+        name="cardType"
+        required
+        onchange="displayFunc(this)"
+      >
+        <option value="silver">Silver Card</option>
+        <option value="gold">Gold Card</option>
+        <option value="diamond">Diamond Card</option>
+        <option value="customLeads">Custom Leads</option>
+      </select>
+
+      <div id="customLeadsPriceContainer" style="display: none">
+        <label for="customLeadsPriceInput">Custom Leads Price:</label>
+        <input
+          type="number"
+          id="customLeadsPriceInput"
+          name="customLeadsPrice"
+          min="0"
+          value="0"
+        />
+      </div>
+
+      <label for="fileUpload">Upload file:</label>
+      <input type="file" id="fileUpload" name="fileUpload" accept="image/*" />
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <!-- Image container -->
+    <div id="cardImageContainer">
+      <img id="cardImage" src="" alt="Card Image" />
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
